@@ -1,0 +1,122 @@
+/* -------------------------------------Carro-------------------------------- */
+#cartList{
+    height: 400px;
+    width: 100%;
+    position: fixed;
+    top: 80px;
+    right: 2px;
+    background-color: rgba(57, 25, 175, 0.863);
+    color: rgb(255, 255, 255);
+    padding: 24px;
+    border-radius: 5px;
+    z-index: 10;
+    transform: top;
+    transform: scaleY(0);
+    overflow-y: scroll;
+}
+
+
+
+
+
+#cartBtn{
+    top: 0;
+    right: 100px;
+    z-index: 10;
+    margin: 5px ;
+    padding: 5px;
+    height: 60px;
+    color: aliceblue;
+    position: fixed;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgba(245, 245, 245, 0);
+    border: none;
+}
+#cartBtn:hover{
+color: rgb(255, 136, 1);
+
+}
+
+
+
+
+
+#cartList.show{
+    transform: scaleY(1);
+}
+
+
+#cartList .cerrarCarrito{
+    top: 0;
+    right: 0px;
+    font-size: 15px;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    position:absolute;
+    border: 2px solid rgb(7, 7, 7);
+    border-radius: 15px;
+    background-color: rgb(3, 3, 3);
+    color: aliceblue;
+}
+#cartList .cerrarCarrito:hover{
+    background-color: rgb(252, 122, 0);
+}
+
+
+#cartList .headers,
+#cartList .productItem{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+}
+#cartList .productItem img{
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    
+}
+#cartList .productItem span{
+    margin: 10px;
+}
+#cartList .headers{
+    font-weight: bold;
+}
+
+#cartList .total{
+    bottom: 0px;
+    border-top:rgb(248, 99, 0) 1px solid;
+    border-bottom-left-radius: inherit ;
+    border-bottom-right-radius: inherit ;
+    width: 100%;
+    padding:16px 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(57, 25, 175, 0.952);
+    
+
+}
+.addCartBtn2{
+    padding: 5px; 
+    width: 100%;
+    font: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+
+}
+#cartList .productItem button{
+    border: 1px black solid;
+    border-radius: 3px;
+    font-size: 20px;
+    color: aliceblue;
+    background-color: rgba(137, 43, 226, 0.507);
+    width:30px;
+    height: 30px;
+
+}
+
+#cartList .productItem button:hover{
+    background-color:rgb(255, 136, 1);
+}
+

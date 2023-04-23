@@ -1,0 +1,44 @@
+/* ----------------------------------------------   ALTA -------------------------- */
+
+#section-alta{
+    margin-top: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: aliceblue;
+    font-size: 1em;
+}
+
+#section-alta h2{
+    font-size: 3em;
+    color: aliceblue;
+    text-decoration: underline aliceblue; 
+
+}
+#section-alta label{
+    display: inline-block;
+    width: 80px;
+    margin:5px;
+
+}
+
+#section-alta .field{
+    margin-top: 12px;
+}
+
+#section-alta input {
+    background-color: rgba(240, 248, 255, 0.171);
+    
+}
+#section-alta textarea {
+    background-color: rgba(240, 248, 255, 0.171);
+}
+#section-alta #envio{
+    width: 3em;
+    height: 3em;
+    background-color: rgba(240, 248, 255, 0.171);
+
+}
+
+
+#section-alta .errMsg{
+    right: 0;
+}
