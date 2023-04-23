@@ -15,15 +15,16 @@ export const inicioTemplate = Handlebars.compile(`
                             style="background-image: url('/img/productos/{{this.img}}')"
                         >
                         </div>
-                        
+                        <span id="categoria">{{this.categoria}}</span>
                         <div class="card__content">
-                            <h3 class="card__heading">{{this.nombre}} {{this.modelo}}</h3>
-                            <div class="card__description">
+                            <h3 class="card__heading">{{this.nombre}} {{this.marca}}</h3>
+                            <div class="card__descripcion">
                                 <span>$ {{this.precio}}</span>
-                                <p>{{this.descripcion}}</p>
+                                <p id="descripcion">{{this.descripcion}}</p>
                             </div>
                         </div>
-                        <button class="addCartBtn addCartBtn2" idProducto="{{this.id}}">Añadir al Carrito    💲   </button>
+                        <button class="addCartBtn addCartBtn2" idProducto="{{this._id}}">Añadir al Carrito    💲   </button>
+                        <button class="borrarProducto" idProducto="{{this._id}}">Borrar Producto</button>
                     </article>
                 </a>
                 {{/each}}
@@ -45,6 +46,21 @@ export const altaTemplate = Handlebars.compile(`
                     <span class="errMsg"></span>
                 </div>
 
+                
+                
+                <div class="field">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca"></textarea>
+                <span class="errMsg"></span>
+                </div>
+                
+                
+                <div class="field">
+                <label for="categoria">Categoria</label>
+                <input type="text" id="categoria">
+                <span class="errMsg"></span>
+                </div>
+                
                 <div class="field">
                     <label for="precio">Precio $</label>
                     <input type="number" step="any" id="precio" required>
@@ -52,34 +68,11 @@ export const altaTemplate = Handlebars.compile(`
                 </div>
 
                 <div class="field">
-                    <label for="stock">Stock</label>
-                    <input type="number" id="stock" required>
-                    <span class="errMsg"></span>
-                </div>
-
-                <div class="field">
-                    <label for="marca">Marca</label>
-                    <input type="text" id="marca"></textarea>
-                    <span class="errMsg"></span>
-                </div>
-
-                <div class="field">
-                    <label for="categoria">Categoria</label>
-                    <input type="text" id="categoria">
-                    <span class="errMsg"></span>
-                </div>
-
-                <div class="field">
-                    <label for="descripcion">Descripcion Corta</label>
+                    <label for="descripcion">Descripcion</label>
                     <textarea id="descripcion" required></textarea>
                     <span class="errMsg"></span>
                 </div>
 
-                <div class="field">
-                    <label for="descripcionLarga">Descripcion Larga</label>
-                    <textarea id="descripcionLarga" required></textarea>
-                    <span class="errMsg"></span>
-                </div>
 
                 <div class="field">
                     <label for="envio">Enviar sin cargo</label>
@@ -87,21 +80,6 @@ export const altaTemplate = Handlebars.compile(`
                     <span class="errMsg"></span>
                 </div>
 
-                <div class="field">
-                    <label for="edadMinima">Edad Minima</label>
-                    <input type="number" id="edadMinima" required>
-                    <input type="radio" name="mesesAños1" value="meses"> Meses
-                    <input type="radio" name="mesesAños1" value="años"> Años
-                    <span class="errMsg"></span>
-                </div>
-
-                <div class="field">
-                    <label for="edadMaxima">Edad Maxima</label>
-                    <input type="number" id="edadMaxima" required>
-                    <input type="radio" name="mesesAños2" value="meses" required> Meses
-                    <input type="radio" name="mesesAños2" value="años"> Años
-                    <span class="errMsg"></span>
-                </div>
 
                 <div class="field">
                     <label for="imagen">Imagen</label>

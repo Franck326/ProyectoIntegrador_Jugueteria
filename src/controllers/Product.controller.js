@@ -26,10 +26,8 @@ export const create = async (req, res) => {
     product.nombre = body.nombre
     product.marca = body.marca
     product.categoria = body.categoria
-    product.stock = body.stock
     product.precio = body.precio
-    product.descriptionCorta = body.descriptionCorta
-    product.descriptionLarga = body.descriptionLarga
+    product.descripcion = body.descripcion
     try {
         await product.save()
         res.json(product)

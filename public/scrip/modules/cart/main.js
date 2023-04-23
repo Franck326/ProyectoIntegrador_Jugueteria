@@ -2,34 +2,61 @@ const cart = []
 import { cartListTemplates } from "../../templates/frangments.templates.js"
 
 
-function renderCart(){
-    
-    const total = cart.reduceRight( (acc, producto)=>{
-        return acc+producto.subtotal
-    },0)
 
-    document.querySelector("#cartList").innerHTML = cartListTemplates({cart, total})
+
+
+function renderCart() {
+
+    const total = cart.reduceRight((acc, producto) => {
+        return acc + producto.subtotal
+    }, 0)
+
+    document.querySelector("#cartList").innerHTML = cartListTemplates({ cart, total })
 
 }
 
 // function subtractCartBtn(){
 document.body.addEventListener("click", async ev => {
-const element = ev.target.closest(".subtractCartBtn")
-if (element) {
-    ev.preventDefault()
-    const idProducto = element.getAttribute("idProducto")
-    const found = cart.find(producto => producto.id == idProducto)
+    const element = ev.target.closest(".subtractCartBtn")
+    if (element) {
+        ev.preventDefault()
+        const idProducto = element.getAttribute("idProducto")
+        const found = cart.find(producto => producto.id == idProducto)
         if (found) {
-            found.cantidad = found.cantidad > 0 ? found.cantidad-1 : 0
+            found.cantidad = found.cantidad > 0 ? found.cantidad - 1 : 0
             found.subtotal = found.precio * found.cantidad
         }
         renderCart()
-}
+    }
 })
 // }
 
 
 renderCart()
+
+
+document.body.addEventListener("click", async ev => {
+    const element = ev.target.closest(".borrarProducto")
+
+    if (element) {
+        ev.preventDefault()
+        const idProducto = element.getAttribute("idProducto")
+
+        var resultado = window.confirm(`Seguro que desea eliminar el producto?`)
+        if (resultado === true) {
+            await fetch(`http://localhost:8080/api/productos/${idProducto}`, {
+                method: "DELETE"
+            })
+            window.alert(`El Producto se a borrado!`)
+
+        } else {
+            window.alert(`Fiuuuu! El Producto esta a salvo!`)
+        }
+        
+    }
+})
+
+
 
 
 
@@ -46,7 +73,7 @@ document.body.addEventListener("click", async ev => {
             found.subtotal = found.precio * found.cantidad
         } else {
 
-            const response = await fetch("http://localhost:3000/productos/" + idProducto)
+            const response = await fetch("http://localhost:8080/api/productos/" + idProducto)
             const producto = await response.json()
             producto.cantidad = 1
             producto.subtotal = producto.precio
@@ -54,12 +81,12 @@ document.body.addEventListener("click", async ev => {
         }
 
         renderCart()
-        
+
     }
 })
 
 
-document.querySelector("#cartBtn").addEventListener("click", ev =>{
+document.querySelector("#cartBtn").addEventListener("click", ev => {
     document.querySelector("#cartList").classList.toggle("show")
 })
 
@@ -68,19 +95,19 @@ document.body.addEventListener("click", ev => {
     const element = ev.target.closest(".search-bar__carrito-container")
     const sumarCarrito = ev.target.closest(".addCartBtn")
     const restaCarrito = ev.target.closest(".subtractCartBtn")
-    if(!element && !sumarCarrito && !restaCarrito){
+    if (!element && !sumarCarrito && !restaCarrito) {
         document.querySelector("#cartList").classList.remove("show")
     }
 })
 
-document.querySelector("#cartList .cerrarCarrito").addEventListener("click", ev =>{
+document.querySelector("#cartList .cerrarCarrito").addEventListener("click", ev => {
     document.querySelector("#cartList").classList.remove("show")
 })
 
 
 
 document.body.addEventListener("keydown", ev => {
-    if(ev.key === "Escape"){
+    if (ev.key === "Escape") {
         document.querySelector("#cartList").classList.remove("show")
         document.querySelector("#nav-bar").classList.remove("show")
         menu.innerHTML = 'Menu 🔻 '
@@ -102,11 +129,11 @@ document.body.addEventListener("keydown", ev => {
 
 
 let menu = document.querySelector("#menu")
-menu.addEventListener("click", ev =>{
+menu.addEventListener("click", ev => {
     document.querySelector("#nav-bar").classList.toggle("show")
-    if(menu.innerHTML == "Menu 🔻 "){
+    if (menu.innerHTML == "Menu 🔻 ") {
         menu.innerHTML = 'Menu 🔺';
-    }else{
+    } else {
         menu.innerHTML = 'Menu 🔻 '
     }
 })
@@ -114,7 +141,7 @@ menu.addEventListener("click", ev =>{
 document.body.addEventListener("click", ev => {
     const element = ev.target.closest(".nav-bar-fullConteiner")
 
-    if(!element){
+    if (!element) {
         document.querySelector("#nav-bar").classList.remove("show")
         menu.innerHTML = 'Menu 🔻 '
     }
@@ -125,4 +152,3 @@ document.body.addEventListener("click", ev => {
 
 
 
-    

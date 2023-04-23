@@ -72,6 +72,10 @@ p{
 a:link, a:visited, a:active {
     text-decoration:none;
 }
+.descripcion{
+    color: black;
+    z-index: 1000;
+}
 
 .card__article:hover{
     border:5px solid rgb(211, 67, 0) ;

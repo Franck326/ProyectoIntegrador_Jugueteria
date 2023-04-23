@@ -10,7 +10,7 @@ export const cartListTemplates = Handlebars.compile(`
     {{#each cart}}
         <div class="productItem">
             <span><img src="pry01/img/productos/{{this.img}}" alt=""></span>
-            <span>{{this.marca}} {{this.modelo}}</span>
+            <span>{{this.marca}} {{this.nombre}}</span>
             <span>$ {{this.precio}}</span>
             <span>
                 <button class="subtractCartBtn" idProducto="{{this.id}}">-</button>
