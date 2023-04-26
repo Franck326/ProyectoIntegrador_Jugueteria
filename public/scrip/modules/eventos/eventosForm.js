@@ -129,31 +129,20 @@ export const añadirEventosForm = () => {
 
     form.addEventListener("submit",async ev => {
         ev.preventDefault()
-        //validar que los input tengana 1 caracter
-        const body = {
-            nombre: form.nombre.value,
-            precio: form.precio.value,
-            marca: form.marca.value,
-            categoria: form.categoria.value,
-            descripcion: form.descripcion.value,
-            img:form.imagen.files[0].name
-        }
+        const formData = new FormData()
+        formData.append("nombre", form.nombre.value)
+        formData.append("precio", form.precio.value)
+        formData.append("marca", form.marca.value)
+        formData.append("categoria", form.categoria.value)
+        formData.append("descripcion", form.descripcion.value)
+        formData.append("imagen", form.imagen.files[0])
+        
 
-        const response = await fetch("http://localhost:8080/api/productos",{
+        const response = await fetch("/api/productos",{
             method: "POST",
-            body: JSON.stringify(body),
-            headers: {
-                "Content-type": "application/json"
-            }
+            body: formData,
         }).then(
             window.alert("se a creado un nuevo producto")
-
         )
-
-        const nuevoProducto = await response.json() 
-
     })
-
-
-
 }

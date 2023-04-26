@@ -47,6 +47,11 @@ p{
     background-color: whitesmoke;
     box-shadow: 5px 3px rgba(0, 0, 0, 0.267);
     transition: 0.1s;
+    background: hsla(252, 20%, 5%, 1);
+    background: linear-gradient(180deg,  hsla(223, 77%, 15%, 1) 32%, hsla(245, 32%, 46%, 1) 62%);
+    background: -moz-linear-gradient(180deg,  hsla(223, 77%, 15%, 1) 32%, hsla(245, 32%, 46%, 1) 62%);
+    background: -webkit-linear-gradient(180deg,  hsla(223, 77%, 15%, 1) 32%, hsla(245, 32%, 46%, 1) 62%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0B0A0F", endColorstr="#091A46", GradientType=1 );
 
 
     
@@ -60,7 +65,7 @@ p{
 }
 
 .card__content{
-    padding: 10px;
+    padding-top: 5px;
     text-decoration: none;
     background: hsla(252, 20%, 5%, 1);
     background: linear-gradient(180deg,  hsla(223, 77%, 15%, 1) 32%, hsla(245, 32%, 46%, 1) 62%);
@@ -72,6 +77,28 @@ p{
 a:link, a:visited, a:active {
     text-decoration:none;
 }
+
+#divCategoria{
+    width: 99%;
+    background-color: rgba(0, 0, 255, 0.205);
+    padding: 5px;
+    margin: 0;
+}
+
+#categoria{
+    font-size: 2.5vh;
+    
+    
+    
+}
+.borrarProducto{
+    width: 80%;
+    height: 4vh;
+    background-color: brown;
+    border-radius: 5px;
+    font-size: 2vh;
+}
+
 .descripcion{
     color: black;
     z-index: 1000;

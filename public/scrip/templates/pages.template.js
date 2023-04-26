@@ -12,15 +12,19 @@ export const inicioTemplate = Handlebars.compile(`
                     <article class="card__article">
                         <div
                             class="card__image"
-                            style="background-image: url('/img/productos/{{this.img}}')"
+                            style="background-image: url('{{this.imagenPath}}')"
                         >
                         </div>
-                        <span id="categoria">{{this.categoria}}</span>
+                        
+                        
+                        
                         <div class="card__content">
-                            <h3 class="card__heading">{{this.nombre}} {{this.marca}}</h3>
+                            <h3 class="card__heading">Nombre: {{this.nombre}}</h3>
+                            <h3 class="card__heading">Marca: {{this.marca}}</h3>
                             <div class="card__descripcion">
-                                <span>$ {{this.precio}}</span>
+                                <span>Precio: $ {{this.precio}}</span>
                                 <p id="descripcion">{{this.descripcion}}</p>
+                                <div id="divCategoria"><span id="categoria">Categoria: {{this.categoria}}</span></div>
                             </div>
                         </div>
                         <button class="addCartBtn addCartBtn2" idProducto="{{this._id}}">Añadir al Carrito    💲   </button>
@@ -39,10 +43,10 @@ export const altaTemplate = Handlebars.compile(`
         </header>
 
         <main>
-            <form action="">
+            <form id="crearProductoForm" action="/api/productos" method="POST" enctype="multipart/form-data">
                 <div class="field">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" required>
+                    <input type="text" id="nombre" name="nombre" required>
                     <span class="errMsg"></span>
                 </div>
 
@@ -50,42 +54,36 @@ export const altaTemplate = Handlebars.compile(`
                 
                 <div class="field">
                 <label for="marca">Marca</label>
-                <input type="text" id="marca"></textarea>
+                <input type="text" name="marca" id="marca"></textarea>
                 <span class="errMsg"></span>
                 </div>
                 
                 
                 <div class="field">
                 <label for="categoria">Categoria</label>
-                <input type="text" id="categoria">
+                <input type="text" name="categoria" id="categoria">
                 <span class="errMsg"></span>
                 </div>
                 
                 <div class="field">
                     <label for="precio">Precio $</label>
-                    <input type="number" step="any" id="precio" required>
+                    <input type="number" step="any" name="precio" id="precio" required>
                     <span class="errMsg"></span>
                 </div>
 
                 <div class="field">
                     <label for="descripcion">Descripcion</label>
-                    <textarea id="descripcion" required></textarea>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
                     <span class="errMsg"></span>
                 </div>
 
-
-                <div class="field">
-                    <label for="envio">Enviar sin cargo</label>
-                    <input type="checkbox" id="envio">
-                    <span class="errMsg"></span>
-                </div>
-
-
-                <div class="field">
-                    <label for="imagen">Imagen</label>
-                    <input type="file" id="imagen" required>
-                    <span class="errMsg"></span>
-                </div>
+                
+                    <div class="field">
+                        <label for="imagen">Imagen</label>
+                        <input type="file" name="imagen" id="imagen">
+                        <span class="errMsg"></span>
+                    </div>
+                
 
                 
                 <button  id="botonEnviar" type="submit">Crear Producto</button><span class="errMsg"></span>

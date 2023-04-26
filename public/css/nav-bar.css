@@ -129,11 +129,12 @@ ul{
 /* -----------------------------------logo-------------------------------- */
 
 .search-bar__logo-container{
-    background-image: url(/pry01/img/logo/logo.png);
+    background-image: url(../img/logo/logo.png);
+    
     background-position: center;
     background-size: cover;
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
     margin: 5px 0 0  ;    
     z-index: 400;
 }

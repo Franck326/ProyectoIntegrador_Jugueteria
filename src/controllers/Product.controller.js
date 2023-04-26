@@ -21,22 +21,27 @@ export const getOne = async (req, res) => {
 }
 
 export const create = async (req, res) => {
-    const {body} = req 
+    const {body,file} = req 
+    console.log("body", body)
+    console.log("file", req.file)
     const product = new ProductModel
     product.nombre = body.nombre
     product.marca = body.marca
     product.categoria = body.categoria
     product.precio = body.precio
     product.descripcion = body.descripcion
+    product.imagenPath = (file) ? `/img/${file.filename}` : "img/noImg.jpg"
+
     try {
         await product.save()
         res.json(product)
     } catch (error) {
         res.status(500).json({errorMsg: "error"})
     }
-    
 
-    
+}
+export const subirImg = async (req, res) => {
+
 }
 
 export const update =async (req, res) => {
